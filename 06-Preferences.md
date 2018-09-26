@@ -14,4 +14,10 @@ There are five typical ways to persist data in Android.
 
 5. **Cloud Storage**
 
-## Settings = SharedPreferences
+## Settings = SharedPreferences + PreferenceFragment
+
+There is also a UI class called PreferenceFragment that helps for creating a Settings screen in the user interface.
+
+**Fragament:** A fragment is a class that represents a modular and reusable piece of an Activity
+
+The PreferenceFragment class is specifically designed to display Preferences. PreferenceFragments populate themselves with views defined in XML. When users modify values in the PreferenceFragment, it modifies values for keys in the Androids's SharedPreferences.
