@@ -21,3 +21,66 @@ There is also a UI class called PreferenceFragment that helps for creating a Set
 **Fragament:** A fragment is a class that represents a modular and reusable piece of an Activity
 
 The PreferenceFragment class is specifically designed to display Preferences. PreferenceFragments populate themselves with views defined in XML. When users modify values in the PreferenceFragment, it modifies values for keys in the Androids's SharedPreferences.
+
+## Create a SettingsActivity class
+
+Create a new Activity for your settings as per usual. Here are some Settings-specific things to add to the android manifest:
+```xml
+  <application
+      android:allowBackup="false"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme"
+      tools:ignore="GoogleAppIndexingWarning">
+    <activity android:name=".VisualizerActivity"
+        android:launchMode="singleTop">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name=".SettingsActivity"
+        android:label="Settings"
+        android:parentActivityName=".VisualizerActivity">
+        <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value=".VisualizerActivity"
+            />
+    </activity>
+  </application>
+```
+* Change the main activity's launch mode to "SingleTop", which will prevent it from reloading after Settings is closed
+* Add the main activity as a parentActivity of the SettingsActivity
+
+And some things to add to SettingsActivity.java:
+```java
+public class SettingsActivity extends AppCompatActivity {
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_settings);
+    
+    ActionBar actionBar = this.getSupportActionBar();
+    if (actionBar != null) {
+      actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    int itemId = item.getItemId();
+    switch (itemId) {
+      case R.id.home:
+        NavUtils.navigateUpFromSameTask(this);
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
+  }
+}
+```
+* Replace the back button in SettingsActivity to appear as an up button
+* Override the back button's click method to take you back to the main Activity, instead of closing the app
