@@ -11,8 +11,9 @@ providers, (iv) broadcast receivers)
 
 ---
 
-Code snippets and text taken from the associated Udacity course are not specifically quoted. All content should be considered derivative of (and therefore belonging to the owners of) the associated course.
+Code snippets and text taken from the associated Udacity course are not specifically quoted. All content should be considered derivative of (and therefore belonging to the owners of) the associated course. Code snippets are reused under the attached license.
 
-https://www.udacity.com/course/new-android-fundamentals--ud851
-https://github.com/udacity/ud851-Exercises
-https://github.com/udacity/ud851-Sunshine
+**Original Content:**
+* https://www.udacity.com/course/new-android-fundamentals--ud851
+* https://github.com/udacity/ud851-Exercises
+* https://github.com/udacity/ud851-Sunshine
