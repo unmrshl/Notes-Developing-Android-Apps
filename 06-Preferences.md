@@ -202,7 +202,34 @@ protected void onDestroy() {
 
 ## More Preference types
 
-CheckBoxPreference, ListPreference, EditTextPreference
+**CheckBoxPreference**
+```xml
+<CheckBoxPreference
+      android:defaultValue="true"
+      android:key="show_bass"
+      android:summaryOff="Hidden"
+      android:summaryOn="Shows"
+      android:title="Show Bass"/>
+```
+**ListPreference** 
+```xml
+  <ListPreference 
+      android:defaultValue="@string/pref_units_metric"
+      android:entries="@array/pref_units_options"
+      android:entryValues="@array/pref_units_values"
+      android:key="@string/pref_units_key"
+      android:title="@string/pref_units_label"/>
+```
+
+**EditTextPreference**
+```xml
+  <EditTextPreference 
+      android:defaultValue="@string/pref_location_default"
+      android:inputType="text"
+      android:key="@string/pref_location_key"
+      android:singleLine="true"
+      android:title="@string/pref_location_label"/>
+```
 
 ## Update Preference Summary
 
