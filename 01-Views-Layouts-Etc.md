@@ -51,7 +51,7 @@ Log statements accept two parameters: TAG and message. TAG is usually the class 
 Log.v(TAG, "This is a verbose log statement.");
 ```
 
-## Working with strings.xml
+## Working with Resources
 
 In an activity, just call 
 ```java
@@ -61,6 +61,74 @@ getString(R.id.string_id);
 In a layout file, make use of @string
 ```xml
 <TextView text="@string/string_id" />
+```
+
+There are several different types of resources.
+
+* Strings
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Visualize</string>
+    <string name="action_settings">Settings</string>
+</resources>
+```
+* Booleans
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="pref_show_bass_default">true</bool>
+    <bool name="pref_show_mid_range_default">false</bool>
+    <bool name="pref_show_treble_default">false</bool>
+</resources>
+```
+* Colors
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorAccent">#FF4081</color>
+</resources>
+```
+* Dimensions
+```xml
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>
+```
+* Arrays
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Label ordering must match values -->
+    <array name="pref_color_option_labels">
+        <item>@string/pref_color_label_red</item>
+        <item>@string/pref_color_label_blue</item>
+        <item>@string/pref_color_label_green</item>
+    </array>
+
+    <array name="pref_color_option_values">
+        <item>@string/pref_color_red_value</item>
+        <item>@string/pref_color_blue_value</item>
+        <item>@string/pref_color_green_value</item>
+    </array>
+</resources>
+```
+* Styles
+```xml
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+    </style>
+</resources>
 ```
 
 ## Menus
